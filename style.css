@@ -1,0 +1,172 @@
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f2f5fa;
+  text-align: center;
+  padding: 30px;
+  margin: 0;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+#veriYukleDugmesi {
+  background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+  background-size: 300% 300%;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-position 0.4s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#veriYukleDugmesi:hover {
+  background-position: right center;
+  transform: scale(1.05);
+}
+
+#kartListeAlani {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kart {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.kart::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+  background-size: 400% 400%;
+  animation: parlama 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.kart:hover::before {
+  opacity: 0.5;
+}
+
+.kart:hover {
+  transform: scale(1.06) rotateZ(0.5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+}
+
+.kart > * {
+  position: relative;
+  z-index: 2;
+}
+
+.kart img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 12px;
+  border: 3px solid #007aff;
+  transition: all 0.3s ease;
+}
+
+.kart:hover img {
+  filter: saturate(140%) drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+}
+
+.kart h4 {
+  margin: 10px 0 5px;
+  color: #34495e;
+}
+
+.kart p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+@keyframes parlama {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 500px) {
+  #veriYukleDugmesi {
+    width: 90%;
+    font-size: 15px;
+  }
+
+  .kart img {
+    width: 80px;
+    height: 80px;
+  }
+}
+#kullaniciDetayModal {
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  background-color: white;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#modalAd {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+#modalEposta {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+#modalProfilFoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  border: 3px solid #4facfe;
+  transition: transform 0.3s ease;
+}
+
+#modalProfilFoto:hover {
+  transform: scale(1.08);
+}
+
+
+.fancybox-content {
+  border-radius: 16px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+.modalGizli {
+  display: none;
+}
