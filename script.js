@@ -1,5 +1,19 @@
 $(document).ready(function () {
+  $.fn.shake = function (interval = 100, distance = 10, times = 3) {
+    let $el = $(this);
+    $el.css("position", "relative");
+
+    for (let i = 0; i < times; i++) {
+      $el.animate({ left: -distance }, interval)
+        .animate({ left: distance }, interval);
+    }
+    $el.animate({ left: 0 }, interval);
+    return this;
+  };
+
   $("#veriYukleDugmesi").click(function () {
+    $(this).shake();
+
     $.ajax({
       url: "https://randomuser.me/api/?results=6",
       dataType: "json",
